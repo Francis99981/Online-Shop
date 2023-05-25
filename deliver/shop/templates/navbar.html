@@ -1,0 +1,47 @@
+<style>
+  .hello_msg{
+  font-size:18px;
+  color:#fff;
+  margin-right:20px;
+  }
+</style>
+
+<nav class="navbar navbar-expand-lg navbar-dark green">
+   <i style="color:green;" class="fas fa-home"> <a class="navbar-brand" href="{% url 'index' %}">Deliver</a></i>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'about' %}">About Us</span></a>
+      </li>
+      {% if user.is_authenticated %}
+
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'store' %}">Shopping</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'menu'%}">Menu</a>
+      </li>
+      <li class="nav-item">
+            </ul>
+     <ul class="navbar-nav">
+      <li class="nav-item">
+          <a class="nav-link" href="{% url 'cart' %}"><i class="fa fa-shopping-cart"> </i> Cart</span></a>
+      </li>
+      <li class="nav-link"></i>
+        <span class="hello-msg"> Hello, <i class="fas fa-person">{{ request.user }}</i></span>
+        <span class="hello-msg"><a href="{% url 'logout' %}">Logout</a></span>
+      {% else %}
+        <a class="nav-link" href="{% url 'register' %}">Register</a>
+      </li>
+            <li class="nav-item">
+        <a class="nav-link" href="{% url 'login'%}">Login</a>
+      </li>
+      {% endif %}
+
+      </li>
+    </ul>
+  </div>
+</nav>
